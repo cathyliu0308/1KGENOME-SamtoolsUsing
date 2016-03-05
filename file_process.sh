@@ -7,6 +7,7 @@ function process()
 	wget $filename.bai
 
 	samtools view -u $2 $3:$4-$5 | samtools mpileup -f $6 - > $2.mpileup
+	#./samtools view -u $2 $3:$4-$5 | ./samtools mpileup -f $6 - > $2.mpileup
 	./read_count $2.mpileup data/$2.read_count $4 $5
 
 	rm $2.mpileup
